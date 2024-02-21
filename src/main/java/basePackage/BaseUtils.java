@@ -19,11 +19,13 @@ public class BaseUtils {
 		BaseUtils.driver = driver;
 	}
 
-	public static void LaunchBrowser() {
+	public static void LaunchBrowser(String browser) {
+	if(browser.equalsIgnoreCase("Chrome")) {
 		driver = new ChromeDriver();
 		driver.get("https://preprodfe.blockbyblock.com/");
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 		setDriver(driver);
+	}
 	}
 	
 }

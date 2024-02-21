@@ -21,8 +21,8 @@ public class LoginSteps {
 		Config config = new Config();
 		config.setUpConfig();		
 		String browser = System.getProperty("browser");
-		System.out.println(browser);
-		BaseUtils.LaunchBrowser();
+	//	System.out.println(browser);
+		BaseUtils.LaunchBrowser(browser);
 		driver = BaseUtils.getDriver();
 	}
 
