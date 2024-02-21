@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 import basePackage.BaseUtils;
 
@@ -28,6 +29,13 @@ public class LoginPage {
 	@FindBy(xpath = "//div[@role='alert']//div[.='Logged in successfully']")
 	public WebElement loginSuccessPopup;
 	
+	@FindBy(xpath = "//p[.='Please select program to login']")
+	public WebElement labelSelectProgram;
+	
+	@FindBy(xpath = "//h4[.='Welcome Back']")
+	public WebElement labelWelcomeBack;
+	
+	
 	public void inputUserName(String UserName) {
 		userName.sendKeys(UserName);
 	}
@@ -46,7 +54,14 @@ public class LoginPage {
 	}
 	
 	public void verifyLoginScreenRedirection() {
-		
+		String Title = driver.getTitle();
+		System.out.println(Title);
+		Assert.assertEquals(Title, "Smart System");
+	}
+	
+	public void verifyProgramScreenRedirection() {
+		Assert.assertEquals(labelWelcomeBack.isDisplayed(), true);
+		Assert.assertEquals(labelSelectProgram.isDisplayed(), true);		
 	}
 	
 	

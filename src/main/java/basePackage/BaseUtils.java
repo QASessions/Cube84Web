@@ -24,6 +24,7 @@ public class BaseUtils {
 		driver = new ChromeDriver();
 		driver.get("https://preprodfe.blockbyblock.com/");
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+		driver.manage().window().maximize();
 		setDriver(driver);
 	}
 	}

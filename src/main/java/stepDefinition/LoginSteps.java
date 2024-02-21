@@ -15,7 +15,8 @@ import utility.Config;
 
 public class LoginSteps {
 	WebDriver driver;
-
+	LoginPage lp;
+	
 	@Given("application launches the Browser")
 	public void application_launches_the_browser() throws FileNotFoundException, IOException {
 		Config config = new Config();
@@ -28,34 +29,33 @@ public class LoginSteps {
 
 	@Given("user verify the Login screen")
 	public void user_verify_the_login_screen() {
-	    
-	   
+	   lp = new LoginPage();
+	   lp.verifyLoginScreenRedirection();
 	}
 
 	@When("User enter the valid {string} and {string}")
 	public void user_enter_the_valid_and(String userName, String passwrd) {
-		LoginPage lp = new LoginPage();
+		lp = new LoginPage();
 		lp.inputUserName(userName);
 		lp.inputPassword(passwrd);
 	}
 
 	@When("user hit the Login button")
 	public void user_hit_the_login_button() {
-		LoginPage lp = new LoginPage();
+		lp = new LoginPage();
 		lp.clickLoginBtn();   
 	}
 
 	@Then("application should throw success popup")
 	public void application_should_throw_success_popup() {
-	    LoginPage lp = new LoginPage();
+	    lp = new LoginPage();
 	    lp.verifyLoginSuccessPopup();
 	   
 	}
 
 	@Then("user should asked to choose the Program")
 	public void user_should_asked_to_choose_the_program() {
-	    
-	   
+	    lp.verifyProgramScreenRedirection();	   
 	}
 	
 	
