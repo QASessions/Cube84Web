@@ -22,7 +22,8 @@ public class BaseUtils {
 	public static void LaunchBrowser(String browser) {
 	if(browser.equalsIgnoreCase("Chrome")) {
 		driver = new ChromeDriver();
-		driver.get("https://preprodfe.blockbyblock.com/");
+		String url = System.getProperty("applicationUrl");
+		driver.get(url);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 		driver.manage().window().maximize();
 		setDriver(driver);

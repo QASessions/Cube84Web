@@ -7,6 +7,7 @@ import java.io.IOException;
 import org.openqa.selenium.WebDriver;
 
 import basePackage.BaseUtils;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -35,28 +36,47 @@ public class LoginSteps {
 
 	@When("User enter the valid {string} and {string}")
 	public void user_enter_the_valid_and(String userName, String passwrd) {
-		lp = new LoginPage();
 		lp.inputUserName(userName);
 		lp.inputPassword(passwrd);
 	}
 
 	@When("user hit the Login button")
 	public void user_hit_the_login_button() {
-		lp = new LoginPage();
 		lp.clickLoginBtn();   
 	}
 
 	@Then("application should throw success popup")
 	public void application_should_throw_success_popup() {
-	    lp = new LoginPage();
-	    lp.verifyLoginSuccessPopup();
+	    lp.verifyAndCloseLoginSuccessPopup();
 	   
 	}
 
 	@Then("user should asked to choose the Program")
-	public void user_should_asked_to_choose_the_program() {
+	public void user_should_asked_to_choose_the_program() throws InterruptedException {
 	    lp.verifyProgramScreenRedirection();	   
 	}
+	
+	@And("user select the Program {string}")
+	public void user_select_the_Program(String program) throws InterruptedException {
+		lp.clickSelectProgram();
+		lp.chooseProgram(program);
+	}
+	
+	@And("user hit the submit button")
+	public void user_hit_the_submit_button() {
+		lp.clickSubmitBtn();
+	}
+	
+	@And("user should able to view the Homepage")
+	public void user_should_able_to_view_the_Homepage() {
+	lp.verifyHomePageRedirection();
+	}	
+	
+	@And("user should view the default selected Program at homepage {string}")
+	public void user_should_view_the_default_selected_Program_at_homepage(String ProgramName) {
+		lp.verifySelectedProgram(ProgramName);
+	}
+  
 	
 	
 }
