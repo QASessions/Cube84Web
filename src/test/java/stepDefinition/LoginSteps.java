@@ -1,6 +1,7 @@
 package stepDefinition;
 
 
+import java.awt.AWTException;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
@@ -57,8 +58,7 @@ public class LoginSteps {
 	}
 	
 	@And("user select the Program {string}")
-	public void user_select_the_Program(String program) throws InterruptedException {
-		lp.clickSelectProgram();
+	public void user_select_the_Program(String program) throws InterruptedException, AWTException {
 		lp.chooseProgram(program);
 	}
 	
@@ -77,6 +77,14 @@ public class LoginSteps {
 		lp.verifySelectedProgram(ProgramName);
 	}
   
+	
+	@Then("user close the browser")
+	public void user_close_the_browser() {
+	  driver.quit();
+	}
+
+
+
 	
 	
 }
