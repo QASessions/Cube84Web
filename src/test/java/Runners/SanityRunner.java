@@ -11,7 +11,7 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 		
 		features = "src\\test\\resource\\Feature",
 		glue = "stepDefinition",
-		tags = "@CreateTask",
+		tags = "@Demo",
 		dryRun = false,
 		plugin = {
 				"pretty",

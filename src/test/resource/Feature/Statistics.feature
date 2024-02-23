@@ -2,7 +2,7 @@
 @tag1
 Feature: To Automate the Statistics Functionality
   
-  @CreateTask @Biohazard @TC001  @Test123
+  @CreateTask @Biohazard @TC001  @Test123  @Demo
   Scenario Outline: Verify the user can create the Activity
   Given application launches the Browser
   And user verify the Login screen
@@ -36,7 +36,7 @@ Feature: To Automate the Statistics Functionality
   |stageadmin|welcome123 	|Bethlehem Community Benefit District | QATest			 | Biohazard	 |Cleaning 		 |Graffiti Removal |	
   
   
-  @CreateTask @TC002 @QuantityOnly
+  @CreateTask @TC002 @QuantityOnly @Demo
   Scenario Outline: Verify the user can create the Activity
   Given application launches the Browser
   And user verify the Login screen
@@ -2336,7 +2336,7 @@ Feature: To Automate the Statistics Functionality
   |stageadmin|welcome123 	|Bethlehem Community Benefit District | QATest			 |Qty, Zone, Type of Project, Notes|Cleaning	 |Maintenance Reports |		
     
 
-  @CreateTask   @TC070 #@Quantity,Zone,Business,Note,Cross Street,Information Requested,Gender,Age,Did you give out any of the following?
+  @CreateTask   @TC070 #Quantity,Zone,Business,Note,Cross Street,Information Requested,Gender,Age,Did you give out any of the following
   Scenario Outline: Verify the user can create the Activity
   Given application launches the Browser
   And user verify the Login screen
@@ -2537,7 +2537,7 @@ Feature: To Automate the Statistics Functionality
   
   Examples:
   |Username	 |Password    |ProgramName       										| ActivityName | TemplateName  |CategoryName |SubCategoryName |
-  |stageadmin|welcome123 	|Bethlehem Community Benefit District | QATest			 |Quantity, Zone, Location, Name of Project, Notes|Cleaning	 |Machine Hours |		
+  |stageadmin|welcome123 	|Bethlehem Community Benefit District | QATest			 |Quantity, Zone, Location, Name of Project, Notes |Cleaning	 |Machine Hours |		
     
 
   @CreateTask  @Quantity,Zone,Location,ReferredTo,Notes @TC076
