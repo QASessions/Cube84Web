@@ -3054,5 +3054,33 @@ Feature: To Automate the Statistics Functionality
   |stageadmin|welcome123 	|Bethlehem Community Benefit District | QATest			 |Encampments|Safety	 |Incident Reports |
   
   
+ @CreateTask   @TC091 @Comparison
+  Scenario Outline: Verify the SubTask Activity and Menu and DashboardsAssignmeng list
+  Given application launches the Browser
+  And user verify the Login screen
+  And User enter the valid "<Username>" and "<Password>"
+  And user hit the Login button
+  And application should throw success popup
+  And user should asked to choose the Program
+  And user select the Program "<ProgramName>"
+  And user hit the submit button
+  Then user should able to view the Homepage
+  And user should view the default selected Program at homepage "<ProgramName>"
+  And user select the statistics
+  And user select the Daily and weekly view
+  And user Select the SubTaskList 
+  And user getting the List of Sub Task
+  When user click on the Add Menu and Dashboard	Assignment button
+  And user taking count for all the task list from each category
+  And user compare both the tables
+  #And user select the Daily and weekly view
+  #And user view the Created Activity under Category in GlobalTask "<CategoryName>"
+  #And user Select the SubTaskList 
+  #Then user should able to view the created Activity in SubCategoryList
+  #Then user should able to select the quantity for current date and view the task creation page
+  Then user close the browser
   
+  Examples:
+  |Username	 |Password    |ProgramName       										| ActivityName | TemplateName  |CategoryName |SubCategoryName |
+  |stageadmin|welcome123 	|Bethlehem Community Benefit District | QATest			 |Encampments|Safety	 |Incident Reports |
   

@@ -19,6 +19,11 @@ public class RandomTestDataGenerator {
 		    System.out.println(generatedString);
 		    return generatedString;
 	}
+	
+	public static String generateAlphabets(int length) {
+		String alpha  = RandomStringUtils.randomAlphabetic(length);
+		return alpha;
+	}
 
 	public static String getPhoneNumber() {
 		Random rnd = new Random();

@@ -10,11 +10,12 @@ import utility.RandomTestDataGenerator;
 
 public class StatisticsSteps {
 	 SideMenus sideMenu = new SideMenus();
-	 StatisticsPage sp = new StatisticsPage();
+	 StatisticsPage sp;
 	 static String ActivityName;
 	 
 	@Given("user select the statistics")
 	public void user_select_the_statistics() {   
+		sp = new StatisticsPage();
 	    sideMenu.verifyStatistics();
 	    sideMenu.selectStatistics();
 	}
@@ -31,7 +32,7 @@ public class StatisticsSteps {
 
 	@Given("user should give the Activity Name {string}")
 	public void user_should_give_the_activity_name(String activityName) {
-		ActivityName = activityName + "_" + RandomTestDataGenerator.generate_RandomStringName(5, true, true);;
+		ActivityName = activityName + "_" + RandomTestDataGenerator.generate_RandomStringName(5, true, true);
 		sp.enterActivity(ActivityName);
 	}
 	
@@ -94,6 +95,26 @@ public class StatisticsSteps {
 	public void user_verify_the_created_Activity_in_Admin_Activity_Screen() {
 		sp.verifyCreatedActivity();
 	}
+	
+	@Then("user getting the List of Sub Task")
+	public void user_getting_the_list_of_sub_task() throws InterruptedException {
+		sp.getListOfSubTasks();
+	}
+	@When("user click on the Add Menu and Dashboard	Assignment button")
+	public void user_click_on_the_add_menu_and_dashboard_assignment_button() {
+		sp.clickAppMenuAndDashboardAssignment();
+	}
+	@When("user taking count for all the task list from each category")
+	public void user_taking_count_for_all_the_task_list_from_each_category() throws InterruptedException {
+		sp.getAllListofAppMenuAndDashBoard();
+	}
+	@When("user compare both the tables")
+	public void user_compare_both_the_tables() {
+		sp.compareSubTask_AppMenuAndDashboard_Lists();
+	}
+
+
+
 
 
 	
